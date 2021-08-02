@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+<form name="f1" onchange="update_f1()">
+    <label for="func1">f(x) := </label>
+    <input type="text" id="func1" name="func" value="sin(x)">
+    <label for="f1r">pixels:</label>
+    <input type="number" id="f1r" name="res" value="100"><br><br>
+    <label for="f1-x">min x:</label>
+    <input type="number" id="f1-x" name="min_x" value="-4">
+    <label for="f1+x">max x:</label>
+    <input type="number" id="f1+x" name="max_x" value="4">
+    <br>
+    <label for="f1-y">min y:</label>
+    <input type="number" id="f1-y" name="min_y" value="-4">
+    <label for="f1+y">max y:</label>
+    <input type="number" id="f1+y" name="max_y" value=4>
+</form>
+<br>
+<canvas id="1D1D" width="2056" height="2056" style="width: 1024px; height: 1024px">shows an 1D to 1D function</canvas>
+
+<br><br><hr>
+<form style="display: inline-block" name="f2" onchange="update_f2()">
+    <label for="func2">f(x) := </label>
+    <input type="text" id="func2" name="func" value="x">
+    <label for="f2r">pixels:</label>
+    <input type="number" id="f2r" name="res" value="256"><br><br>
+    <label for="f2-x">min x:</label>
+    <input type="number" id="f2-x" name="min_x" value="-4">
+    <label for="f2+x">max x:</label>
+    <input type="number" id="f2+x" name="max_x" value="4">
+    <br>
+    <label for="f2-y">min y:</label>
+    <input type="number" id="f2-y" name="min_y" value="-4">
+    <label for="f2+y">max y:</label>
+    <input type="number" id="f2+y" name="max_y" value=4>
+    <br>
+</form>
+<div style="display: inline-block; position: relative; left: 100px; visibility: hidden" class="loader" id="l2"></div>
+<br>
+<form name="f2t_ch" onchange="toggle_grid_f2()">
+    <label for="f2g">show grid</label>
+    <input type="checkbox" id="f2g" name="grid" checked>
+</form>
+
+<br>
+<canvas id="CtoCT" style="width: 1024px; height: 1024px; position: absolute" width="2056" height="2056"></canvas>
+<canvas id="CtoC" width="1" height="1" style="width: 1024px; height: 1024px">
+    shows an function on the complex plane
+</canvas>
+
+<script type="text/javascript" src="complex.js"></script>
+<script type="text/javascript" src="calculator.js"></script>
+<script type="text/javascript" src="1D1D.js"></script>
+<script type="text/javascript" src="CtoC.js"></script>
+</body>
+</html>

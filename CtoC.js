@@ -21,6 +21,7 @@ class ComplexPolarPlot {
 
         this.func_in = document.getElementById(this.name+"in")
         this.l2 = document.getElementById(this.name+"l")
+        this.toggle_grid()
     }
     
     toggle_grid() {

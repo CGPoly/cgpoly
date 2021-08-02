@@ -7,10 +7,15 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
+<script type="text/javascript" src="complex.js"></script>
+<script type="text/javascript" src="calculator.js"></script>
+<script type="text/javascript" src="CtoC.js"></script>
+<script type="text/javascript" src="func_handler.js"></script>
+<script type="text/javascript" src="1D1D.js"></script>
 
-<form name="f1" onchange="update_f1()">
-    <label for="func1">f(x) := </label>
-    <input type="text" id="func1" name="func" value="sin(x)">
+<form name="f1" onchange="update('f1')">
+    <label for="f1in">f(x) := </label>
+    <input type="text" id="f1in" name="func" value="sin(x)">
     <label for="f1r">pixels:</label>
     <input type="number" id="f1r" name="res" value="100"><br><br>
     <label for="f1-x">min x:</label>
@@ -24,12 +29,16 @@
     <input type="number" id="f1+y" name="max_y" value=4>
 </form>
 <br>
-<canvas id="1D1D" width="2056" height="2056" style="width: 1024px; height: 1024px">shows an 1D to 1D function</canvas>
+<canvas id="f1c" width="2056" height="2056" style="width: 1024px; height: 1024px">shows an 1D to 1D function</canvas>
+<script>
+    add_func("f1", 0)
+    update('f1')
+</script>
 
 <br><br><hr>
-<form style="display: inline-block" name="f2" onchange="update_f2()">
-    <label for="func2">f(x) := </label>
-    <input type="text" id="func2" name="func" value="x">
+<form style="display: inline-block" name="f2" onchange="update('f2')">
+    <label for="f2in">f(x) := </label>
+    <input type="text" id="f2in" name="func" value="x">
     <label for="f2r">pixels:</label>
     <input type="number" id="f2r" name="res" value="256"><br><br>
     <label for="f2-x">min x:</label>
@@ -43,22 +52,50 @@
     <input type="number" id="f2+y" name="max_y" value=4>
     <br>
 </form>
-<div style="display: inline-block; position: relative; left: 100px; visibility: hidden" class="loader" id="l2"></div>
+<div style="display: inline-block; position: relative; left: 100px; visibility: hidden" class="loader" id="f2l"></div>
 <br>
-<form name="f2t_ch" onchange="toggle_grid_f2()">
+<form name="f2t_ch" onchange="toggle_grid('f2')">
     <label for="f2g">show grid</label>
     <input type="checkbox" id="f2g" name="grid" checked>
 </form>
-
 <br>
-<canvas id="CtoCT" style="width: 1024px; height: 1024px; position: absolute" width="2056" height="2056"></canvas>
-<canvas id="CtoC" width="1" height="1" style="width: 1024px; height: 1024px">
-    shows an function on the complex plane
-</canvas>
+<canvas id="f2ct" style="width: 1024px; height: 1024px; position: absolute" width="2056" height="2056"></canvas>
+<canvas id="f2c" width="1" height="1" style="width: 1024px; height: 1024px"></canvas>
+<script>
+    add_func("f2", 1)
+    update('f2')
+</script>
 
-<script type="text/javascript" src="complex.js"></script>
-<script type="text/javascript" src="calculator.js"></script>
-<script type="text/javascript" src="1D1D.js"></script>
-<script type="text/javascript" src="CtoC.js"></script>
+<br><br><hr>
+<form style="display: inline-block" name="f3" onchange="update('f3')">
+    <label for="f3in">f(x) := </label>
+    <input type="text" id="f3in" name="func" value="e^x^6">
+    <label for="f3r">pixels:</label>
+    <input type="number" id="f3r" name="res" value="1024"><br><br>
+    <label for="f3-x">min x:</label>
+    <input type="number" id="f3-x" name="min_x" value="-5">
+    <label for="f3+x">max x:</label>
+    <input type="number" id="f3+x" name="max_x" value="5">
+    <br>
+    <label for="f3-y">min y:</label>
+    <input type="number" id="f3-y" name="min_y" value="-5">
+    <label for="f3+y">max y:</label>
+    <input type="number" id="f3+y" name="max_y" value=5>
+    <br>
+</form>
+<div style="display: inline-block; position: relative; left: 100px; visibility: hidden" class="loader" id="f3l"></div>
+<br>
+<form name="f3t_ch" onchange="toggle_grid('f3')">
+    <label for="f3g">show grid</label>
+    <input type="checkbox" id="f3g" name="grid">
+</form>
+<br>
+<canvas id="f3ct" style="width: 1024px; height: 1024px; position: absolute" width="2056" height="2056"></canvas>
+<canvas id="f3c" width="1" height="1" style="width: 1024px; height: 1024px"></canvas>
+<script>
+    add_func("f3", 1)
+    update('f3')
+</script>
+
 </body>
 </html>
